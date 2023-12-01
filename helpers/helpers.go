@@ -14,3 +14,22 @@ func ReadFile(path string) (string) {
 
 	return string(content);
 }
+
+type Map map[string]string
+
+func (m Map) Get(key string) string {
+	return m[key]
+}
+
+func (m Map) Set(key, value string) {
+	m[key] = value
+}
+
+func (m Map) Delete(key string) {
+	delete(m, key)
+}
+
+func (m Map) Has(key string) bool {
+	_, ok := m[key]
+	return ok
+}
