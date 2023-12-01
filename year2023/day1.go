@@ -54,18 +54,28 @@ func Trebuchet(input string) float64 {
 	return sum
 }
 
-func TrebuchetP2(input string) float64 {
+func replaceNumWordsWithNums (input string) string {
 	stringToNumMap := map[string]string{
-		"one": "1",
-		"two": "2",
-		"three": "3",
-		"four": "4",
-		"five": "5",
-		"six": "6",
-		"seven": "7",
-		"eight": "8",
-		"nine": "9",
+		"one": "o1e",
+		"two": "t2o",
+		"three": "t3e",
+		"four": "f4r",
+		"five": "f5e",
+		"six": "s6x",
+		"seven": "s7n",
+		"eight": "e8t",
+		"nine": "n9e",
 	}
+
+	str := input;
+	for k, v := range stringToNumMap {
+		str = strings.ReplaceAll(str, k, v)
+	}
+
+	return str;
+}
+
+func TrebuchetP2(input string) float64 {
 
 	var leftNum string
 	var rightNum string
@@ -74,8 +84,11 @@ func TrebuchetP2(input string) float64 {
 	inputSlice := strings.Split(input, "\n")
 
 	for _, v := range inputSlice {
+
+		str := replaceNumWordsWithNums(v)
+
 		left := 0
-		right := len(v) - 1
+		right := len(str) - 1
 
 		for left <= right {
 			if leftNum != "" && rightNum != "" {
@@ -83,30 +96,16 @@ func TrebuchetP2(input string) float64 {
 			}
 
 			if leftNum == "" {
-				_, err := strconv.ParseFloat(string(v[left]), 64)
+				_, err := strconv.ParseFloat(string(str[left]), 64)
 				if err == nil {
-					leftNum = string(v[left])
-				} else {
-					for k, val := range stringToNumMap {
-						if strings.Contains(v[:left+1], k) {
-							leftNum = val
-							break
-						}
-					}
+					leftNum = string(str[left])
 				}
 			}
 
 			if rightNum == "" {
-				_, err := strconv.ParseFloat(string(v[right]), 64)
+				_, err := strconv.ParseFloat(string(str[right]), 64)
 				if err == nil {
-					rightNum = string(v[right])
-				} else {
-					for k, val := range stringToNumMap {
-						if strings.Contains(v[right:], k) {
-							rightNum = val
-							break
-						}
-					}
+					rightNum = string(str[right])
 				}
 			}
 
