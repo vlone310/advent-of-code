@@ -70,7 +70,7 @@ func RockPaperScissorsP2(input string) float64 {
 	var scoreSum float64
 
 	roundsList := strings.Split(input, "\n")
-	
+
 	for _, round := range roundsList {
 		var in = strings.Split(round, " ")
 		if len(in) != 2 {

@@ -5,8 +5,7 @@ import (
 	"testing"
 )
 
-
-func TestTrebuchet(t *testing.T){
+func TestTrebuchet(t *testing.T) {
 	input := helpers.ReadFile("./day1/input.txt")
 
 	out := Trebuchet(input)
@@ -17,7 +16,7 @@ func TestTrebuchet(t *testing.T){
 	}
 }
 
-func TestTrebuchetP2(t *testing.T){
+func TestTrebuchetP2(t *testing.T) {
 	input := helpers.ReadFile("./day1/input.txt")
 
 	out := TrebuchetP2(input)

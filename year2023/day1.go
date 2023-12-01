@@ -20,23 +20,23 @@ func Trebuchet(input string) float64 {
 				break
 			}
 
-			if (leftNum == "") {
-				_, err := strconv.ParseFloat(string (v[left]), 64)
+			if leftNum == "" {
+				_, err := strconv.ParseFloat(string(v[left]), 64)
 				if err == nil {
 					leftNum = string(v[left])
 				}
 			}
 
-			if (rightNum == "") {
-				_, err := strconv.ParseFloat(string (v[right]), 64)
+			if rightNum == "" {
+				_, err := strconv.ParseFloat(string(v[right]), 64)
 				if err == nil {
 					rightNum = string(v[right])
 				}
 			}
-			if (leftNum == "") {
+			if leftNum == "" {
 				left++
 			}
-			if (rightNum == "") {
+			if rightNum == "" {
 				right--
 			}
 		}
@@ -54,25 +54,25 @@ func Trebuchet(input string) float64 {
 	return sum
 }
 
-func replaceNumWordsWithNums (input string) string {
+func replaceNumWordsWithNums(input string) string {
 	stringToNumMap := map[string]string{
-		"one": "o1e",
-		"two": "t2o",
+		"one":   "o1e",
+		"two":   "t2o",
 		"three": "t3e",
-		"four": "f4r",
-		"five": "f5e",
-		"six": "s6x",
+		"four":  "f4r",
+		"five":  "f5e",
+		"six":   "s6x",
 		"seven": "s7n",
 		"eight": "e8t",
-		"nine": "n9e",
+		"nine":  "n9e",
 	}
 
-	str := input;
+	str := input
 	for k, v := range stringToNumMap {
 		str = strings.ReplaceAll(str, k, v)
 	}
 
-	return str;
+	return str
 }
 
 func TrebuchetP2(input string) float64 {
@@ -109,11 +109,11 @@ func TrebuchetP2(input string) float64 {
 				}
 			}
 
-			if (leftNum == "") {
+			if leftNum == "" {
 				left++
 			}
 
-			if (rightNum == "") {
+			if rightNum == "" {
 				right--
 			}
 		}

@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestCalorieCounting(t *testing.T){
+func TestCalorieCounting(t *testing.T) {
 	input := helpers.ReadFile("./day1/input.txt")
 
 	out := CalorieCounting(input)
@@ -16,7 +16,7 @@ func TestCalorieCounting(t *testing.T){
 	}
 }
 
-func TestCalorieCountingP2(t *testing.T){
+func TestCalorieCountingP2(t *testing.T) {
 	input := helpers.ReadFile("./day1/input.txt")
 
 	out := CalorieCountingP2(input)
