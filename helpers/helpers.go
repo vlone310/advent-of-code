@@ -15,6 +15,10 @@ func ReadFile(path string) string {
 	return string(content)
 }
 
+func IsDigit(char byte) bool {
+	return char >= '0' && char <= '9'
+}
+
 type Map map[string]string
 
 func (m Map) Get(key string) string {
