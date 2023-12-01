@@ -5,8 +5,7 @@ import (
 	"testing"
 )
 
-
-func TestRockPaperScissors(t *testing.T){
+func TestRockPaperScissors(t *testing.T) {
 	input := helpers.ReadFile("./day2/input.txt")
 
 	out := RockPaperScissors(input)
@@ -17,7 +16,7 @@ func TestRockPaperScissors(t *testing.T){
 	}
 }
 
-func TestRockPaperScissorsP2(t *testing.T){
+func TestRockPaperScissorsP2(t *testing.T) {
 	input := helpers.ReadFile("./day2/input.txt")
 
 	out := RockPaperScissorsP2(input)
