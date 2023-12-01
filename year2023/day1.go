@@ -1,54 +1,53 @@
 package year2023
 
 import (
+	"advent-of-code/helpers"
 	"strconv"
 	"strings"
 )
 
 func Trebuchet(input string) float64 {
 	var sum float64
-	var leftNum string
-	var rightNum string
 
 	inputSlice := strings.Split(input, "\n")
 
 	for _, v := range inputSlice {
 		left := 0
 		right := len(v) - 1
+		var leftNum byte
+		var rightNum byte
+
 		for left <= right {
-			if leftNum != "" && rightNum != "" {
+			if leftNum != 0 && rightNum != 0 {
 				break
 			}
 
-			if leftNum == "" {
-				_, err := strconv.ParseFloat(string(v[left]), 64)
-				if err == nil {
-					leftNum = string(v[left])
+			if leftNum == 0 {
+				if helpers.IsDigit(v[left]) {
+					leftNum = v[left]
 				}
 			}
 
-			if rightNum == "" {
-				_, err := strconv.ParseFloat(string(v[right]), 64)
-				if err == nil {
-					rightNum = string(v[right])
+			if rightNum == 0 {
+				if helpers.IsDigit(v[right]) {
+					rightNum = v[right]
 				}
 			}
-			if leftNum == "" {
+			if leftNum == 0 {
 				left++
 			}
-			if rightNum == "" {
+			if rightNum == 0 {
 				right--
 			}
 		}
 
-		s := leftNum + rightNum
+		s := string(leftNum) + string(rightNum)
 		val, err := strconv.ParseFloat(s, 64)
 		if err != nil {
 			continue
 		}
+
 		sum += val
-		leftNum = ""
-		rightNum = ""
 	}
 
 	return sum
@@ -68,6 +67,7 @@ func replaceNumWordsWithNums(input string) string {
 	}
 
 	str := input
+
 	for k, v := range stringToNumMap {
 		str = strings.ReplaceAll(str, k, v)
 	}
@@ -77,13 +77,13 @@ func replaceNumWordsWithNums(input string) string {
 
 func TrebuchetP2(input string) float64 {
 
-	var leftNum string
-	var rightNum string
 	var sum float64
 
 	inputSlice := strings.Split(input, "\n")
 
 	for _, v := range inputSlice {
+		var leftNum byte
+		var rightNum byte
 
 		str := replaceNumWordsWithNums(v)
 
@@ -91,42 +91,38 @@ func TrebuchetP2(input string) float64 {
 		right := len(str) - 1
 
 		for left <= right {
-			if leftNum != "" && rightNum != "" {
+			if leftNum != 0 && rightNum != 0 {
 				break
 			}
 
-			if leftNum == "" {
-				_, err := strconv.ParseFloat(string(str[left]), 64)
-				if err == nil {
-					leftNum = string(str[left])
+			if leftNum == 0 {
+				if helpers.IsDigit(str[left]) {
+					leftNum = str[left]
 				}
 			}
 
-			if rightNum == "" {
-				_, err := strconv.ParseFloat(string(str[right]), 64)
-				if err == nil {
-					rightNum = string(str[right])
+			if rightNum == 0 {
+				if helpers.IsDigit(str[right]) {
+					rightNum = str[right]
 				}
 			}
 
-			if leftNum == "" {
+			if leftNum == 0 {
 				left++
 			}
 
-			if rightNum == "" {
+			if rightNum == 0 {
 				right--
 			}
 		}
 
-		s := leftNum + rightNum
+		s := string(leftNum) + string(rightNum)
 		val, err := strconv.ParseFloat(s, 64)
 		if err != nil {
 			continue
 		}
 
 		sum += val
-		leftNum = ""
-		rightNum = ""
 	}
 
 	return sum
