@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	input := helpers.ReadFile("./year2023/day3/input.txt")
-	out := year2023.GearRatiosP2(input)
+	input := helpers.ReadFile("./year2023/day4/input.txt")
+	out := year2023.ScratchcardsP2(input)
 	fmt.Printf("result: %v\n", out)
 }
