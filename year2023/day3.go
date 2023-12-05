@@ -2,7 +2,6 @@ package year2023
 
 import (
 	"advent-of-code/helpers"
-	"fmt"
 	"strconv"
 	"strings"
 )
@@ -27,7 +26,6 @@ func GearRatios(input string) int64 {
 				if colIndex == len(row)-1 || !helpers.IsDigit(byte(row[colIndex+1])) {
 					if isAdjacent {
 						num, _ := strconv.ParseInt(curNum, 10, 64)
-						fmt.Println(num)
 						sum += num
 					}
 					curNum = ""
@@ -125,8 +123,6 @@ func getAdjacentNumsSum(rowIndex int, colIndex int, rows []string) int64 {
 			numbersFound = append(numbersFound, adjacentNumber)
 		}
 	}
-
-	fmt.Println(numbersFound)
 
 	if len(numbersFound) == 2 {
 		var sum int64 = 1
