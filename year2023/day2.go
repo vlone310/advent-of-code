@@ -1,8 +1,8 @@
 package year2023
 
 import (
+	"advent-of-code/helpers"
 	"math"
-	"regexp"
 	"strconv"
 	"strings"
 )
@@ -11,11 +11,6 @@ func GetId(input string) (int64, error) {
 	stringId := strings.Split(strings.Split(input, ":")[0], " ")[1]
 
 	return strconv.ParseInt(stringId, 10, 64)
-}
-
-func SplitByMultipleSeparators(input string) []string {
-	r := regexp.MustCompile(`; |, `)
-	return r.Split(input, -1)
 }
 
 func CubeConundrum(input string) int64 {
@@ -80,7 +75,7 @@ func CubeConundrumP2(input string) float64 {
 		}
 
 		round := strings.Split(game, ": ")[1]
-		values := SplitByMultipleSeparators(round)
+		values := helpers.SplitByMultipleSeparators(round, `; |, `)
 
 		for _, value := range values {
 			valueSlice := strings.Split(value, " ")
