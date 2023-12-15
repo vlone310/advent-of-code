@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	input := helpers.ReadFile("./year2023/day9/input.txt")
-	out := year2023.MirageMaintenanceP2(input)
+	input := helpers.ReadFile("./year2023/day13/input.txt")
+	out := year2023.PointofIncidenceP2(input)
 	fmt.Printf("result: %v\n", out)
 }
