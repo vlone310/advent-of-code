@@ -54,10 +54,6 @@ func GearRatiosP2(input string) int64 {
 	return sum
 }
 
-func isOutOfBound(index int, lenght int) bool {
-	return index < 0 || index >= lenght
-}
-
 func isAdjacentTo(rowIndex int, colIndex int, rows []string) bool {
 	indicies := [8][2]int{
 		{0, 1},
@@ -74,7 +70,7 @@ func isAdjacentTo(rowIndex int, colIndex int, rows []string) bool {
 		currRowIndex := indiciesPair[0] + rowIndex
 		currColIndex := indiciesPair[1] + colIndex
 
-		if isOutOfBound(currRowIndex, len(rows)) || isOutOfBound(currColIndex, len(rows[0])) {
+		if helpers.IsOutOfBound(currRowIndex, len(rows)) || helpers.IsOutOfBound(currColIndex, len(rows[0])) {
 			continue
 		}
 
@@ -104,7 +100,7 @@ func getAdjacentNumsSum(rowIndex int, colIndex int, rows []string) int64 {
 		currRowIndex := indiciesPair[0] + rowIndex
 		currColIndex := indiciesPair[1] + colIndex
 
-		if isOutOfBound(currRowIndex, len(rows)) || isOutOfBound(currColIndex, len(rows[0])) {
+		if helpers.IsOutOfBound(currRowIndex, len(rows)) || helpers.IsOutOfBound(currColIndex, len(rows[0])) {
 			continue
 		}
 
@@ -136,7 +132,7 @@ func getAdjacentNumsSum(rowIndex int, colIndex int, rows []string) int64 {
 }
 
 func findNumToRight(rowIndex int, colIndex int, rows []string, num string) string {
-	if isOutOfBound(rowIndex, len(rows)) || isOutOfBound(colIndex, len(rows[0])) || !helpers.IsDigit(rows[rowIndex][colIndex]) {
+	if helpers.IsOutOfBound(rowIndex, len(rows)) || helpers.IsOutOfBound(colIndex, len(rows[0])) || !helpers.IsDigit(rows[rowIndex][colIndex]) {
 		return num
 	}
 
@@ -144,7 +140,7 @@ func findNumToRight(rowIndex int, colIndex int, rows []string, num string) strin
 }
 
 func findNumToLeft(rowIndex int, colIndex int, rows []string, num string) string {
-	if isOutOfBound(rowIndex, len(rows)) || isOutOfBound(colIndex, len(rows[0])) || !helpers.IsDigit(rows[rowIndex][colIndex]) {
+	if helpers.IsOutOfBound(rowIndex, len(rows)) || helpers.IsOutOfBound(colIndex, len(rows[0])) || !helpers.IsDigit(rows[rowIndex][colIndex]) {
 		return num
 	}
 

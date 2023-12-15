@@ -1,6 +1,7 @@
 package year2023
 
 import (
+	"advent-of-code/helpers"
 	"strconv"
 	"strings"
 )
@@ -86,7 +87,7 @@ func ScratchcardsP2(input string) (instancesCount int) {
 
 		// for each won copy, add to map, 1 * current card instance copies + 1
 		for copiesWon > 0 {
-			if !isOutOfBound(int(cardId)+copiesWon-1, len(cardsContents)) {
+			if !helpers.IsOutOfBound(int(cardId)+copiesWon-1, len(cardsContents)) {
 				cardInstancesMap[cardId+int64(copiesWon)] += 1 * (cardInstancesMap[cardId] + 1)
 			}
 			copiesWon--
