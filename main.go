@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	input := helpers.ReadFile("./year2023/day14/input.txt")
-	out := year2023.ParabolicReflectorDishP2(input)
+	input := helpers.ReadFile("./year2023/day15/input.txt")
+	out := year2023.LensLibraryP2(input)
 	fmt.Printf("result: %v\n", out)
 }
