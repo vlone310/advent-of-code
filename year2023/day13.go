@@ -2,7 +2,6 @@ package year2023
 
 import (
 	"advent-of-code/helpers"
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -110,15 +109,13 @@ func PointofIncidenceP2(input string) (sum int) {
 					r++
 				}
 
-				if helpers.IsOutOfBound(l, len(rotated)) || helpers.IsOutOfBound(r, len(rotated)) && isSmudgeFixed {
+				if (helpers.IsOutOfBound(l, len(rotated)) || helpers.IsOutOfBound(r, len(rotated))) && isSmudgeFixed {
 					cR = i + 1
 					break
 				}
 
 			}
 		}
-
-		fmt.Println(rR, cR)
 
 		sum += rR
 		sum += cR
