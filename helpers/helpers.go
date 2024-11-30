@@ -28,3 +28,25 @@ func SplitByMultipleSeparators(input string, splitter string) []string {
 func IsOutOfBound(index int, lenght int) bool {
 	return index < 0 || index >= lenght
 }
+
+func CopyMap[S comparable, T any](m map[S]T) map[S]T {
+	res := make(map[S]T)
+	for k, v := range m {
+		res[k] = v
+	}
+	return res
+}
+
+func Max(a int, b int) int {
+	if a > b {
+		return a
+	}
+	return b
+}
+
+func Min(a int, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}

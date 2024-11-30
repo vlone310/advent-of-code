@@ -1,3 +1,3 @@
-module advent-of-code
+module github.com/vlone310/advent-of-code
 
-go 1.21.3
+go 1.23.0
