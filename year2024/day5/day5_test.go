@@ -6,7 +6,7 @@ import (
 	"github.com/vlone310/advent-of-code/helpers"
 )
 
-func TestPringQueue(t *testing.T) {
+func TestPrintQueue(t *testing.T) {
 	input := helpers.ReadFile("./input.txt")
 	out := printQueue(input)
 	want := 143
@@ -16,7 +16,7 @@ func TestPringQueue(t *testing.T) {
 	}
 }
 
-func TestPringQueueP2(t *testing.T) {
+func TestPrintQueueP2(t *testing.T) {
 	input := helpers.ReadFile("./input.txt")
 	out := printQueueP2(input)
 	want := 123

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"time"
 )
 
 func ReadFile(path string) string {
@@ -49,4 +50,11 @@ func Min(a int, b int) int {
 		return a
 	}
 	return b
+}
+
+func Timer() func() {
+	start := time.Now()
+	return func() {
+		fmt.Printf("took %v\n", time.Since(start))
+	}
 }
