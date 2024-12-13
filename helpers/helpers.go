@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"regexp"
+	"strconv"
 	"time"
 )
 
@@ -57,4 +58,13 @@ func Timer() func() {
 	return func() {
 		fmt.Printf("took %v\n", time.Since(start))
 	}
+}
+
+func ParseInt(s string) int {
+	val, err := strconv.Atoi(s)
+	if err != nil {
+		fmt.Println("Error converting string to int:", err)
+		return 0
+	}
+	return val
 }
