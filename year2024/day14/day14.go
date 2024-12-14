@@ -68,11 +68,12 @@ func restroomRedoubt(input string, width, height, seconds int) int {
 }
 
 func restroomRedoubtP2(input string, width, height int) int {
+	defer helpers.Timer()()
 	var seconds int
 	var res int
+	instructions := parseInputToInstructions(input)
 
 	for res == 0 {
-		instructions := parseInputToInstructions(input)
 		robotsPos := []coords{}
 
 		for _, instruction := range instructions {
