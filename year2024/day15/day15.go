@@ -5,6 +5,7 @@ import (
 	"log"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/vlone310/advent-of-code/helpers"
 )
@@ -42,6 +43,20 @@ func warehouseWoesP2(input string) int {
 
 	for _, move := range grid.moves {
 		grid.moveRobot(move)
+	}
+
+	return grid.calculateSum()
+}
+
+func warehouseWoesP2Visualisation(input string) int {
+	grid := newGrid(input)
+	grid.scale()
+
+	for _, move := range grid.moves {
+		grid.clear()
+		grid.moveRobot(move)
+		grid.print()
+		time.Sleep(time.Millisecond * 300)
 	}
 
 	return grid.calculateSum()
@@ -222,10 +237,12 @@ func (g *grid) scale() {
 }
 
 func (g grid) print() {
-	fmt.Println("robotPos", g.robotPos)
-	fmt.Println("moves", string(g.moves))
-
 	for _, row := range g.whMap {
 		fmt.Println(string(row))
 	}
+}
+
+func (g grid) clear() {
+	fmt.Print("\033[H\033[2J")
+
 }
