@@ -52,9 +52,13 @@ func warehouseWoesP2Visualisation(input string) int {
 	grid := newGrid(input)
 	grid.scale()
 
-	for _, move := range grid.moves {
+	for i, move := range grid.moves {
 		grid.clear()
 		grid.moveRobot(move)
+		fmt.Printf("%.2f %v", float64(i)/float64(len(grid.moves))*100, "%")
+		fmt.Println()
+		fmt.Println("Move:", string(move))
+		fmt.Println()
 		grid.print()
 		time.Sleep(time.Millisecond * 300)
 	}
