@@ -9,7 +9,7 @@ import (
 func TestReindeerMaze(t *testing.T) {
 	input := helpers.ReadFile("./input.txt")
 	out := reindeerMaze(input)
-	want := 7036
+	want := 11048
 
 	if out != want {
 		t.Errorf("reindeerMaze() = %v, want = %v", out, want)
@@ -19,7 +19,7 @@ func TestReindeerMaze(t *testing.T) {
 func TestReindeerMazeP2(t *testing.T) {
 	input := helpers.ReadFile("./input.txt")
 	out := reindeerMazeP2(input)
-	want := 45
+	want := 64
 
 	if out != want {
 		t.Errorf("reindeerMazeP2() = %v, want = %v", out, want)
