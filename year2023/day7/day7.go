@@ -2,7 +2,6 @@ package year2023
 
 import (
 	"cmp"
-	"fmt"
 	"math"
 	"slices"
 	"strconv"
@@ -161,8 +160,6 @@ func CamelCardsP2(input string) (result int) {
 		}
 		return 1
 	})
-
-	fmt.Println(parsedHands)
 
 	for i, hand := range parsedHands {
 		result += hand.bet * (i + 1)

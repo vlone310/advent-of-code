@@ -1,7 +1,6 @@
 package year2023
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 
@@ -28,7 +27,6 @@ func HotSpringsP2(input string) (sum int) {
 		rowSplit := strings.Split(row, " ")
 		template := repeatStringWithSeparator(rowSplit[0], 5, "?")
 		arrangements := stringNumsToInt(strings.Split(repeatStringWithSeparator(rowSplit[1], 5, ","), ","))
-		fmt.Println(template, arrangements)
 		sum += calculateArragements(template, arrangements, 0, 0)
 	}
 
