@@ -37,18 +37,23 @@ func ramRun(input string, gridSize, bytesSize int) int {
 	return 0
 }
 
-func ramRunP2(input string, gridZise, bytesSize int) string {
+func ramRunP2(input string, gridZise int) string {
 	bytes := strings.Split(input, "\n")
+	start := 0
+	end := len(bytes) - 2
 
-	for b := bytesSize; b < len(bytes); b++ {
-		corrupted := getCorruptedCoordinates(input, b)
-		end := astar(gridZise, corrupted)
-		if end == nil {
-			return bytes[b-1]
+	for end-start > 1 {
+		middle := (end + start) / 2
+		corrupted := getCorruptedCoordinates(input, middle)
+		path := astar(gridZise, corrupted)
+		if path == nil {
+			end = middle
+		} else {
+			start = middle
 		}
 	}
 
-	return ""
+	return bytes[start]
 }
 
 func getCorruptedCoordinates(input string, size int) map[coords]bool {
