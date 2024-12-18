@@ -18,7 +18,7 @@ func TestRamRun(t *testing.T) {
 
 func TestRamRunP2(t *testing.T) {
 	input := helpers.ReadFile("./input.txt")
-	out := ramRunP2(input, 6, 12)
+	out := ramRunP2(input, 6)
 	want := "6,1"
 
 	if out != want {
